@@ -52,6 +52,13 @@ describe('User should be able to receive coins convert to crypto or by courses',
     
   })
   it('should not be able to convert into cryptos if the amount is not enough', () => {
+    const user = new User("joao da silva")
+    user.receiveCoins(100);
+    
+    const act = () => {
+      user.exchangeCoinsToCrypto(200);
+    }
 
+    expect(act).toThrow("Not enough coins to convert to crypto");
   })
 })
