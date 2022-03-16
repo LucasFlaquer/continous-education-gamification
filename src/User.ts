@@ -27,4 +27,11 @@ export class User {
     this.totalCoins -= course.price;
     this.courses.push(course);
   }
+
+  public exchangeCoinsToCrypto(amountCoins: number){
+    if(this.totalCoins < amountCoins)
+      throw new Error("Not enough coins to convert to crypto");
+    this.totalCoins -= amountCoins;
+    this.totalCryptos = amountCoins/10;
+  }
 }
