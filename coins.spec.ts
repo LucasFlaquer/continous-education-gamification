@@ -15,7 +15,7 @@ describe('User should be able to receive coins convert to crypto or by courses',
   it('should trade coins for a course if has enough amount of coins', () => {
     const user = new User("Douglas");
     const course = new Course(100);
-    user.recieveCoins(100);
+    user.receiveCoins(100);
     
     user.buyCourse(course);
 
@@ -25,7 +25,7 @@ describe('User should be able to receive coins convert to crypto or by courses',
   it('should not trade coins for a course if coins amount arent enough', () => {
     const user = new User("joao da silva")
     const course1 = new Course(200)
-    user.recieveCoins(100);
+    user.receiveCoins(100);
     expect(user.buyCourse(course1)).toThrow("Not enought coins to buy this course");
     
   })
