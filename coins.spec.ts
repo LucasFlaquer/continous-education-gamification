@@ -44,10 +44,8 @@ describe('User should be able to receive coins convert to crypto or by courses',
   it('should not be able to trade coins into a course if already owns it', () => {
     const user = new User("joao da silva")
     const course = new Course(100)
-    user.receiveCoins(100);
-
+    user.receiveCoins(200);
     user.buyCourse(course);
-    
     expect(() => user.buyCourse(course)).toThrow("User already owns this course");
   })
   it('should be able to convert coins into cryptos', () => {
@@ -69,6 +67,13 @@ describe('User should be able to receive coins convert to crypto or by courses',
 
   })
   it('should not be able to convert into cryptos if the amount is not enough', () => {
+    const user = new User("joao da silva")
+    user.receiveCoins(100);
+    
+    const act = () => {
+      user.exchangeCoinsToCrypto(200);
+    }
 
+    expect(act).toThrow("Not enough coins to convert to crypto");
   })
 })
