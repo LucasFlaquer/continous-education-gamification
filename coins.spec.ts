@@ -3,7 +3,7 @@ import { User } from "./src/User"
 
 describe('User should be able to receive coins convert to crypto or by courses', ()=> {
   it('should be able to receive coins', () => {
-    const user = new User("joao da silva")
+    const user = new User("John da silva")
     user.receiveCoins(100);
 
     expect(user.totalCoins).toBe(100);
@@ -26,7 +26,7 @@ describe('User should be able to receive coins convert to crypto or by courses',
     const user = new User("joao da silva")
     const course1 = new Course(200)
     user.receiveCoins(100);
-    expect(user.buyCourse(course1)).toThrow("Not enought coins to buy this course");
+    expect(() => user.buyCourse(course1)).toThrow("Not enough coins to buy this course");
     
   })
   it('should not be able to trade coins into a course if already owns it', () => {
