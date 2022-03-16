@@ -1,6 +1,9 @@
+import { User } from "./src/User"
+
 describe('User should be able to receive coins convert to crypto or by courses', ()=> {
   it('should be able to receive coins', () => {
     const user = new User()
+    expect(true).toBe(true)
   })
   it('should decrease amount of coins when they are used', () => {
 
