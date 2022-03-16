@@ -5,7 +5,11 @@ export class User {
     this.name = name;
   }
 
-  public getCoins(ammount: number) {
-    this.totalCoins += ammount;
+  public addCoins(amount: number) {
+    this.totalCoins += amount;
+  }
+
+  public removeCoins(courseValueCoins: number){
+    this.totalCoins -= courseValueCoins;
   }
 }

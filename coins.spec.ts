@@ -3,13 +3,25 @@ import { User } from "./src/User"
 describe('User should be able to receive coins convert to crypto or by courses', ()=> {
   it('should be able to receive coins', () => {
     const user = new User("joao da silva")
-    user.getCoins(100);
+    user.addCoins(100);
 
     expect(user.totalCoins).toBe(100);
 
   })
   it('should decrease amount of coins when they are used', () => {
-
+    const user = new User("Gustavo Nogueira");
+    
+    const totalUserCoins = 150;
+    const courseValueCoins = 100;
+    
+    user.addCoins(totalUserCoins);
+    const userOldCoins = user.totalCoins;
+    
+    user.removeCoins(courseValueCoins);
+    const userNewCoins = user.totalCoins;
+    
+    expect(userNewCoins).toBeLessThan(userOldCoins);
+    expect(userNewCoins).toEqual(userOldCoins-courseValueCoins);
   })
   it('should trade coins for a course if has enought amount of coins', () => {
     
