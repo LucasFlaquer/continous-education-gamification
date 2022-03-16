@@ -1,6 +1,11 @@
 export class User {
   name: string;
-  constructor() {
-    this.name  = 'John Doe';
+  totalCoins= 0;
+  constructor(name:string) {
+    this.name = name;
+  }
+
+  public getCoins(ammount: number) {
+    this.totalCoins += ammount;
   }
 }
