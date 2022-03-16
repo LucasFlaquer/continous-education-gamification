@@ -21,6 +21,9 @@ export class User {
     if(this.totalCoins < course.price)
       throw new Error("Not enough coins to buy this course");
     this.totalCoins -= course.price;
+    if (this.courses.includes(course)) {
+      throw new Error("User already owns this course");
+    }
     this.courses.push(course);
   }
 }
