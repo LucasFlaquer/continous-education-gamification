@@ -12,7 +12,14 @@ describe('User should be able to receive coins convert to crypto or by courses',
 
   })
   it('should trade coins for a course if has enough amount of coins', () => {
+    const user = new User();
+    const course = new Course(100);
+    user.receiveCoins(100);
     
+    user.buyCourse(course);
+
+    expect(user.coins).toBe(0);
+    expect(user.courses.includes(course)).toBeTruthy();
   })
   it('should not trade coins for a course if coins amount arent enough', () => {
     
