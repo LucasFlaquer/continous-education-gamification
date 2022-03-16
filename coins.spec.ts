@@ -1,3 +1,4 @@
+import { Course } from "./src/Course";
 import { User } from "./src/User"
 
 describe('User should be able to receive coins convert to crypto or by courses', ()=> {
@@ -12,7 +13,7 @@ describe('User should be able to receive coins convert to crypto or by courses',
 
   })
   it('should trade coins for a course if has enough amount of coins', () => {
-    const user = new User();
+    const user = new User("Douglas");
     const course = new Course(100);
     user.recieveCoins(100);
     
