@@ -1,9 +1,10 @@
+import { Course } from "./src/Course";
 import { User } from "./src/User"
 
 describe('User should be able to receive coins convert to crypto or by courses', ()=> {
   it('should be able to receive coins', () => {
     const user = new User("joao da silva")
-    user.addCoins(100);
+    user.receiveCoins(100);
 
     expect(user.totalCoins).toBe(100);
 
@@ -14,7 +15,7 @@ describe('User should be able to receive coins convert to crypto or by courses',
     const totalUserCoins = 150;
     const courseValueCoins = 100;
     
-    user.addCoins(totalUserCoins);
+    user.receiveCoins(totalUserCoins);
     const userOldCoins = user.totalCoins;
     
     user.removeCoins(courseValueCoins);
@@ -23,10 +24,21 @@ describe('User should be able to receive coins convert to crypto or by courses',
     expect(userNewCoins).toBeLessThan(userOldCoins);
     expect(userNewCoins).toEqual(userOldCoins-courseValueCoins);
   })
-  it('should trade coins for a course if has enought amount of coins', () => {
+  it('should trade coins for a course if has enough amount of coins', () => {
+    const user = new User("Douglas");
+    const course = new Course(100);
+    user.receiveCoins(100);
     
+    user.buyCourse(course);
+
+    expect(user.totalCoins).toBe(0);
+    expect(user.courses.includes(course)).toBeTruthy();
   })
-  it('should not trade coins for a course if coins amount arent enought', () => {
+  it('should not trade coins for a course if coins amount arent enough', () => {
+    const user = new User("joao da silva")
+    const course1 = new Course(200)
+    user.receiveCoins(100);
+    expect(user.buyCourse(course1)).toThrow("Not enought coins to buy this course");
     
   })
   it('should not be able to trade coins into a course if already owns it', () => {
@@ -35,7 +47,7 @@ describe('User should be able to receive coins convert to crypto or by courses',
   it('should be able to convert coins into cryptos', () => {
     
   })
-  it('should not be able to convert into cryptos if the amount is not enought', () => {
+  it('should not be able to convert into cryptos if the amount is not enough', () => {
 
   })
 })
