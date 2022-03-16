@@ -15,6 +15,9 @@ export class User {
 
   public buyCourse(course: Course) {
     this.totalCoins -= course.price;
+    if (this.courses.includes(course)) {
+      throw new Error("User already owns this course");
+    }
     this.courses.push(course);
   }
 }
