@@ -5,7 +5,7 @@ export class User {
     this.name = name;
   }
 
-  public getCoins(ammount: number) {
+  public recieveCoins(ammount: number) {
     this.totalCoins += ammount;
   }
 }
