@@ -51,7 +51,22 @@ describe('User should be able to receive coins convert to crypto or by courses',
     expect(() => user.buyCourse(course)).toThrow("User already owns this course");
   })
   it('should be able to convert coins into cryptos', () => {
+    const user = new User("Gabriel Noel")
     
+    const totalUserCoins = 150;
+
+    user.receiveCoins(totalUserCoins);
+    const userOldCoins = user.totalCoins;
+    const userOldCryptos = user.totalCryptos;
+
+    user.exchangeCoinsToCrypto(100);
+    const userNewCoins = user.totalCoins;
+    const userNewCryptos = user.totalCryptos;
+
+    expect(userNewCoins).toBeLessThan(userOldCoins);
+    expect(userNewCryptos).toBeGreaterThan(userOldCryptos);
+    expect(userNewCryptos).toEqual(10);
+
   })
   it('should not be able to convert into cryptos if the amount is not enough', () => {
 

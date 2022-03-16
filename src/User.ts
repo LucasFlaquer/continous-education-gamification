@@ -2,7 +2,8 @@ import { Course } from "./Course";
 
 export class User {
   name: string;
-  totalCoins= 0;
+  totalCoins=0;
+  totalCryptos=0;
   courses: Course[] = [];
 
   constructor(name:string) {
