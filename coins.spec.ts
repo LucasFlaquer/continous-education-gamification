@@ -1,5 +1,5 @@
-import { Course } from "./src/Course";
-import { User } from "./src/User"
+import { Course } from "./src/project-1/Course";
+import { User } from "./src/project-1/User"
 
 describe('User should be able to receive coins convert to crypto or by courses', ()=> {
   it('should be able to receive coins', () => {
